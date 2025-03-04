@@ -23,7 +23,7 @@ st.subheader('Historical Stock Prices')
 st.dataframe(tickerDf)
 
 # Calculate the moving average
-tickerDf['Moving Average'] = tickerDf['Close'].rolling(window=30).mean()
+tickerDf['Moving Average'] = tickerDf['Close'].rolling(window=20).mean()
 
 # Plot the closing price and moving average with Plotly
 st.subheader('Stock Price and Moving Average')
@@ -41,7 +41,7 @@ fig.add_trace(go.Scatter(
     x=tickerDf.index,
     y=tickerDf['Moving Average'],
     mode='lines',
-    name='30-Day Moving Average'
+    name='20-Day Moving Average'
 ))
 
 fig.update_layout(
